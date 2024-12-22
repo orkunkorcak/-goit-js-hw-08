@@ -67,3 +67,10 @@ const images = [
 const list = document.querySelector(".gallery");
 const markup = images.map((image) => `<li class="gallery-item"><a class="gallery-link" href="${image.original.replace(/^<|>$/g, "")}"><img class="gallery-image" src="${image.preview.replace(/^<|>$/g, "")}" data-source="${image.original.replace(/^<|>$/g, "")}" alt="I${image.description}"/></a></li>`).join("");
 list.insertAdjacentHTML("beforeend", markup);
+
+list.addEventListener("click", imageClick);
+function imageClick(event) {
+    event.preventDefault();
+    const imageData = event.target.src;
+    console.log(imageData);
+}
