@@ -65,15 +65,16 @@ const images = [
 ];
 
 const list = document.querySelector(".gallery");
-const markup = images.map((image) => `<li class="gallery-item"><a class="gallery-link" href="${image.original.replace(/^<|>$/g, "")}"><img class="gallery-image" src="${image.preview.replace(/^<|>$/g, "")}" data-source="${image.original.replace(/^<|>$/g, "")}" alt="I${image.description}"/></a></li>`).join("");
+const markup = images.map((image) => `<li class="gallery-item"><a class="gallery-link" href="${image.original.replace(/^<|>$/g, "")}"><img class="gallery-image" src="${image.preview.replace(/^<|>$/g, "")}" data-source="${image.original.replace(/^<|>$/g, "")}" alt="${image.description}"/></a></li>`).join("");
 list.insertAdjacentHTML("beforeend", markup);
 
 list.addEventListener("click", imageClick);
 function imageClick(event) {
     event.preventDefault();
-    const imageData = event.target.src;
-    basicLightbox.create(`
-		<img width="1400" height="900" src="${imageData}">
-	`).show()
-
+    const imageData = event.target;
+    if (imageData.tagName === "IMG") {
+        basicLightbox.create(`
+		<img width="1400" height="900" src="${imageData.dataset.source}">
+	`).show();
+    }
 }
