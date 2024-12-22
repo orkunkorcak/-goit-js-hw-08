@@ -72,5 +72,8 @@ list.addEventListener("click", imageClick);
 function imageClick(event) {
     event.preventDefault();
     const imageData = event.target.src;
-    console.log(imageData);
+    basicLightbox.create(`
+		<img width="1400" height="900" src="${imageData}">
+	`).show()
+
 }
