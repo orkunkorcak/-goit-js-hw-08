@@ -1,0 +1,14 @@
+.gallery {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.gallery :hover{
+    cursor: url(./icon.svg#cursor-icon), pointer;
+}
+
+.gallery-image {
+    width: 360px;
+    height: 200px;
+}
