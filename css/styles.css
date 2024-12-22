@@ -5,7 +5,7 @@
     gap: 20px;
 }
 .gallery :hover{
-    cursor: url(./icon.svg#cursor-icon), pointer;
+    cursor: url(../icon.svg#cursor-icon), pointer;
 }
 
 .gallery-image {
